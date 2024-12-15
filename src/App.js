@@ -5,7 +5,7 @@ import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
 function App() {
   return (
-    <div className="min-h-screen flex flex-col bg-white">
+    <div className="min-h-screen flex flex-col bg-gray-300">
     <Navbar/>
     <div>
     <Routes>

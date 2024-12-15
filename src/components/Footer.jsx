@@ -9,7 +9,7 @@ export const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Branding Section */}
           <div className="text-center md:text-left">
-            <h3 className="text-2xl font-bold mb-4">Tasty Bites</h3>
+            <h3 className="text-2xl font-bold mb-4">Restaurant</h3>
             <p className="text-gray-400 text-sm">
               Crafting culinary experiences since 2024.
             </p>
@@ -38,7 +38,7 @@ export const Footer = () => {
 
         {/* Bottom Footer Section */}
         <div className="border-t border-gray-700 mt-8 pt-6 text-center text-sm text-gray-400">
-          <p>&copy; {new Date().getFullYear()} Tasty Bites. All Rights Reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Restaurant. All Rights Reserved.</p>
         </div>
       </div>
     </footer>

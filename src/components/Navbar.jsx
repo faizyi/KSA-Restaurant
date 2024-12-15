@@ -1,56 +1,95 @@
 import React, { useState } from 'react';
 import { MenuOutlined } from '@ant-design/icons';
-import { Drawer } from 'antd';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { MenuDrawer } from './Drawer';
+
 export const Navbar = () => {
+  const location = useLocation();
+  const path = location.pathname;
   const navigate = useNavigate();
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
   const handleDrawerOpen = () => {
     setIsDrawerOpen(true);
   };
+
   const handleDrawerClose = () => {
     setIsDrawerOpen(false);
   };
+
   return (
-    <header className="border-b sticky top-0 z-50 bg-opacity-90 backdrop-filter backdrop-blur-sm bg-white">
-      <div className="container mx-auto px-4 py-6 flex justify-between items-center">
-        <h1 onClick={() => navigate('/')} className="cursor-pointer text-2xl font-bold
-         text-gray-800">Tasty Bites</h1>
-        
+    <header className="border-b sticky top-0 z-50 bg-opacity-95 backdrop-filter backdrop-blur-sm bg-white shadow-md">
+      <div className="container mx-auto px-6 py-4 flex justify-between items-center">
+        {/* Logo */}
+        <h1
+          onClick={() => navigate('/')}
+          className="cursor-pointer text-2xl font-extrabold text-gray-900 hover:text-gray-700 transition-colors duration-300"
+        >
+          Restaurant
+        </h1>
+
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex space-x-6">
-          <a onClick={() => navigate('/')} className="text-gray-600 hover:text-gray-800 
-          cursor-pointer transition duration-300">Home</a>
-          <a onClick={() => navigate('/menu')} className="text-gray-600
-          cursor-pointer hover:text-gray-800 transition duration-300">Menu</a>
-          <a href="#services" className="text-gray-600 hover:text-gray-800 transition duration-300">Services</a>
-          <a href="#blogs" className="text-gray-600 hover:text-gray-800 transition duration-300">Blog</a>
-          <a href="#contact" className="text-gray-600 hover:text-gray-800 transition duration-300">Contact</a>
+        <nav className="hidden md:flex space-x-8">
+          {/* Always show Home and Menu */}
+          <a
+            onClick={() => navigate('/')}
+            className={`cursor-pointer text-gray-700 font-medium hover:text-gray-900 
+              transition-all duration-300 ${
+              path === '/' ? 'border-b-2 border-yellow-500' : ''
+            }`}
+          >
+            Home
+          </a>
+          <a
+            onClick={() => navigate('/menu')}
+            className={`cursor-pointer text-gray-700 font-medium hover:text-gray-900 
+              transition-all duration-300 ${
+              path === '/menu' ? 'border-b-2 border-yellow-500' : ''
+            }`}
+          >
+            Menu
+          </a>
+
+          {/* Conditionally show additional links */}
+          {path === '/' && (
+            <>
+              <a
+                href="#services"
+                className="cursor-pointer text-gray-700 font-medium hover:text-gray-900
+                 transition-all duration-300"
+              >
+                Services
+              </a>
+              <a
+                href="#blogs"
+                className="cursor-pointer text-gray-700 font-medium hover:text-gray-900 
+                transition-all duration-300"
+              >
+                Blog
+              </a>
+              <a
+                href="#contact"
+                className="cursor-pointer text-gray-700 font-medium hover:text-gray-900 
+                transition-all duration-300"
+              >
+                Contact
+              </a>
+            </>
+          )}
         </nav>
-        
+
         {/* Mobile Menu Button */}
         <button className="md:hidden" onClick={handleDrawerOpen}>
-          <MenuOutlined className="h-6 w-6 text-gray-600" />
+          <MenuOutlined className="h-6 w-6 text-gray-700 hover:text-gray-900 transition-colors duration-300" />
         </button>
       </div>
 
-      {/* Mobile Drawer */}
-      <Drawer
-        title="Tasty Bites"
-        placement="right"
-        onClose={handleDrawerClose}
-        open={isDrawerOpen}
-      >
-        <nav className="space-y-4">
-          <a onClick={() => navigate('/')} className="block text-gray-600
-          cursor-pointer hover:text-gray-800 transition duration-300">Home</a>
-          <a onClick={() => navigate('/menu')} className="block text-gray-600
-          cursor-pointer hover:text-gray-800 transition duration-300">Menu</a>
-          <a href="#" className="block text-gray-600 hover:text-gray-800 transition duration-300">Services</a>
-          <a href="#" className="block text-gray-600 hover:text-gray-800 transition duration-300">Blog</a>
-          <a href="#" className="block text-gray-600 hover:text-gray-800 transition duration-300">Contact</a>
-        </nav>
-      </Drawer>
+      {/* Mobile Navigation Drawer */}
+      <MenuDrawer 
+      handleDrawerClose={handleDrawerClose} 
+      isDrawerOpen={isDrawerOpen}
+      path={path} 
+      navigate={navigate}/>
     </header>
   );
 };

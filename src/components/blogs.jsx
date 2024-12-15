@@ -29,7 +29,7 @@ const blogsData = [
 
 export const BlogsSection = () => {
   return (
-    <section id='blogs' className="py-20 bg-gray-50">
+    <section id='blogs' className="py-20 bg-gray-100">
       <div className="container mx-auto px-4">
         {/* Title */}
         <h2 className="text-4xl font-bold text-center text-gray-800 mb-8">

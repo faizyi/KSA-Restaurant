@@ -19,7 +19,7 @@ const USD_TO_SAR = 3.75;
 
 export const Menu = () => {
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-20 bg-gray-100">
       <div className="container mx-auto px-4">
         {/* Section Title */}
         <h2 className="text-4xl font-bold text-center text-gray-800 mb-12">
