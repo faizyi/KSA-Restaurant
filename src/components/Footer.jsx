@@ -17,7 +17,7 @@ export const Footer = () => {
 
           {/* Contact Us Section */}
           <div className="text-center md:text-left">
-            <h3 className="text-xl font-semibold mb-4">Contact Us</h3>
+            <h3 className="text-xl font-semibold mb-4">Contact us</h3>
             <p className="flex items-center text-gray-400 mb-2">
               <PhoneOutlined className="h-5 w-5 mr-2" />
               (123) 456-7890
