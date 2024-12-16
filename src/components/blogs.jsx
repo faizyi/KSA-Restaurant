@@ -1,29 +1,34 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import blogImage1 from '../../src/assets/Images/blog.jpg';
+import blogImage1 from '../../src/assets/Images/blog1.jpg';
+import blogImage2 from '../../src/assets/Images/blog2.jpg';
+import blogImage3 from '../../src/assets/Images/blog3.jpg';
 
 
 const blogsData = [
   {
     id: 1,
-    title: "Discover the Secret Ingredients Behind Our Famous Burger",
+    title: "The Traditional Food of Makkah and Madina",
     description:
-      "Dive into the world of flavors as we reveal what makes our burger stand out.",
+      "Relic the taste of truly traditional- Mutabbaq! This everyday snack of Makkah can be enjoyed anytime.",
     image: blogImage1,
+    link: "https://www.abdulmalikfareed.com/the-traditional-food-of-makkah-and-madina-2022/"
   },
   {
     id: 2,
-    title: "Top 5 Tips for Pairing Wines with Your Favorite Dishes",
+    title: "The Best Special Foods Of Taif Saudi Arabia",
     description:
-      "Explore how pairing wine with food can elevate your dining experience.",
-      image: blogImage1,
+      "Taif is also known for its unique culinary best special and delicious food of Taif.",
+      image: blogImage2,
+      link: "https://www.abdulmalikfareed.com/the-best-special-foods-of-taif-saudi-arabia-2023/"
     },
   {
     id: 3,
-    title: "Healthy Eating at Tasty Bites: Our Top 3 Menu Picks",
+    title: "Top 10 Street Food of Makkah",
     description:
-      "Discover healthy options that are both tasty and satisfying on our menu.",
-      image: blogImage1,
+      "This traditional appetizer food is a nice dish  that you can enjoy even after getting tired of roaming in the streets.",
+      image: blogImage3,
+      link: "https://www.abdulmalikfareed.com/top-10-street-food-of-makkah-2022/"
     },
 ];
 
@@ -56,13 +61,14 @@ export const BlogsSection = () => {
                 <p className="text-gray-600 mb-4 text-sm md:text-base">
                   {blog.description}
                 </p>
-                {/* <Link
-                  to="/blogs"
+                <a
+                  href={blog.link}
+                  target='_blank'
                   className="inline-block bg-yellow-500 text-gray-900 
                   font-semibold py-2 px-4 rounded-full hover:bg-yellow-400 transition duration-300"
                 >
                   Read More
-                </Link> */}
+                </a>
               </div>
             </div>
           ))}

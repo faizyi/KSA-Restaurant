@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import menuitem from "../../src/assets/Images/menuitem.jpg";
+import menuitem from "../../src/assets/Images/menu.webp";
 
 // Full menu data
 const menu = [

@@ -49,7 +49,6 @@ export const Navbar = () => {
           >
             Menu
           </a>
-
           {/* Conditionally show additional links */}
           {path === '/' && (
             <>
@@ -74,8 +73,16 @@ export const Navbar = () => {
               >
                 Contact
               </a>
+             
             </>
           )}
+           <button
+           onClick={() => navigate('/login')}
+           className={`cursor-pointer text-gray-700 font-medium hover:text-yellow-500 
+            transition-all duration-300 ${
+              path === '/login' ? 'border-b-2 border-yellow-500' : ''
+            }`}
+           >Login</button>
         </nav>
 
         {/* Mobile Menu Button */}

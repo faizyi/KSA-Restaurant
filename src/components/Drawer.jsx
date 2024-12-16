@@ -4,65 +4,93 @@ import { Drawer } from 'antd';
 export const MenuDrawer = ({ isDrawerOpen, handleDrawerClose, path, navigate }) => {
   return (
     <Drawer
-      title={
-        <h2 className="text-xl font-bold text-gray-900 text-center">Restaurant</h2>
-      }
+      title={null}
       placement="right"
       onClose={handleDrawerClose}
       open={isDrawerOpen}
-    //   bodyStyle={{
-    //     display: 'flex',
-    //     flexDirection: 'column',
-    //     justifyContent: 'center',
-    //     alignItems: 'center',
-    //     padding: '20px 0',
-    //   }}
+      className="custom-drawer"
     >
-      <nav className="space-y-6 text-center">
-        {/* Always show Home and Menu */}
-        <a
-          onClick={() => {
-            navigate('/');
-            handleDrawerClose();
-          }}
-          className="block text-lg font-semibold text-gray-700 hover:text-gray-900 transition-colors duration-300"
-        >
-          Home
-        </a>
-        <a
-          onClick={() => {
-            navigate('/menu');
-            handleDrawerClose();
-          }}
-          className="block text-lg font-semibold text-gray-700 hover:text-gray-900 transition-colors duration-300"
-        >
-          Menu
-        </a>
+      <div className="flex flex-col items-center py-6">
+        {/* Drawer Header */}
+        <div className="mb-8">
+          <h2 className="text-2xl font-bold text-gray-900">🍽️ Restaurant</h2>
+        </div>
 
-        {/* Conditionally show additional links */}
-        {path === '/' && (
-          <>
-            <a
-              href="#services"
-              className="block text-lg font-semibold text-gray-700 hover:text-gray-900 transition-colors duration-300"
-            >
-              Services
-            </a>
-            <a
-              href="#blogs"
-              className="block text-lg font-semibold text-gray-700 hover:text-gray-900 transition-colors duration-300"
-            >
-              Blog
-            </a>
-            <a
-              href="#contact"
-              className="block text-lg font-semibold text-gray-700 hover:text-gray-900 transition-colors duration-300"
-            >
-              Contact
-            </a>
-          </>
-        )}
-      </nav>
+        {/* Navigation Links */}
+        <nav className="space-y-6 w-full text-center">
+          {/* Always show Home and Menu */}
+          <a
+            onClick={() => {
+              navigate('/');
+              handleDrawerClose();
+            }}
+            className={`block text-lg font-semibold text-gray-800
+               hover:text-yellow-500 transition duration-300 ${
+              path === '/' ? 'text-yellow-500' : ''
+            }`}
+          >
+            Home
+          </a>
+          <a
+            onClick={() => {
+              navigate('/menu');
+              handleDrawerClose();
+            }}
+            className={`block text-lg font-semibold text-gray-800
+               hover:text-yellow-500 transition duration-300 ${
+              path === '/menu' ? 'text-yellow-500' : ''
+            }`}
+          >
+            Menu
+          </a>
+
+          {/* Conditionally show additional links */}
+          {path === '/' && (
+            <>
+              <a
+                href="#services"
+                onClick={() => {
+                  handleDrawerClose();
+                }}
+                className="block text-lg font-semibold text-gray-800
+                 hover:text-yellow-500 transition duration-300"
+              >
+                Services
+              </a>
+              <a
+                href="#blogs"
+                onClick={() => {
+                  handleDrawerClose();
+                }}
+                className="block text-lg font-semibold text-gray-800
+                 hover:text-yellow-500 transition duration-300"
+              >
+                Blog
+              </a>
+              <a
+                href="#contact"
+                onClick={() => {
+                  handleDrawerClose();
+                }}
+                className="block text-lg font-semibold text-gray-800
+                 hover:text-yellow-500 transition duration-300"
+              >
+                Contact
+              </a>
+            </>
+          )}
+
+          {/* Login Button */}
+          <button
+            onClick={() => {navigate('/login'); handleDrawerClose();}}
+            className={`block w-full text-lg font-semibold bg-yellow-500 text-black
+              py-2 px-4 border border-transparent rounded-lg transition-all duration-300
+               hover:bg-yellow-500`}
+          >
+            Login
+          </button>
+        </nav>
+      </div>
     </Drawer>
   );
 };
